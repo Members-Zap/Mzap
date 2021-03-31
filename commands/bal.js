@@ -4,7 +4,7 @@ const config = require('../config.json');
 module.exports = {
   name: "bal",
   aliases: ["balance"], 
-  description: "shows the log of coins.",
+  description: "montre le journal des piècesy.",
   execute: async(client, message, args, data, db) => {
     let user = message.guild.members.cache.get(member => args.length && message.mentions.users.size < 1 && member.user.username.toLowerCase().startsWith(args.join(" ").toLowerCase())) || message.author
     if (user.username === undefined) user = user.user
@@ -25,10 +25,10 @@ module.exports = {
     const embed = new Discord.MessageEmbed()
     .setColor("#8a8aff")
     .setAuthor(``) 
-    .setTitle(`💰${user.username} ➡ You have **${data.coins.toFixed(1)}** coins 💰`)
-    .setFooter(`Page ${page}/${tpages} | +bal #page | ${config.EmbedFooter}`)
-    .setDescription(`**Want coins without joining server?**\nBuy coins from our official [Discord Server](${config.supportServer}) and get upto 25,000 coins a week to grow your server extremely fast. Cool, right?`)
-    .addField(`** Coin Transaction History**`, logs.length == 0 ? "No transaction history found!" : logs.join("\n")) 
+    .setTitle(`💰${user.username} ➡ Tu as **${data.coins.toFixed(1)}** coins 💰`)
+    .setFooter(`Page ${page}/${tpages} | .bal #page | ${config.EmbedFooter}`)
+    .setDescription(`**Vous voulez des pièces sans rejoindre le serveur?**\nBuy pièces de monnaie de notre officiel [Discord Server](${config.supportServer}) et obtenez jusqu'à 25 000 pièces par semaine pour développer votre serveur extrêmement rapidement. Cool, à droite?`)
+    .addField(`** Coin Transaction History**`, logs.length == 0 ? "Aucun historique des transactions trouvé!" : logs.join("\n")) 
     .setImage(`https://cdn.discordapp.com/attachments/801320007077593111/805370070070853652/350kb.gif`)
     message.channel.send(embed) 
   } 
