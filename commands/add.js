@@ -3,7 +3,7 @@ const config = require('../config.json');
 module.exports = {
   name: "addbal",
   aliases: ["addcoins", "add"],
-  description: "adds coins to an user, owner only.",
+  description: "ajoute des pièces à un utilisateur, propriétaire uniquement.",
   execute: async(client, message, args, data, db) => {
 //
     let owners = config.OwnerID;
@@ -14,12 +14,12 @@ module.exports = {
 
     let pay = Number(args[1])
 
-    if (!pay || isNaN(pay)) return message.channel.send(`**Command incorrect!** ||Noob Owner||\n**Try:** \`${config.prefix}bal <MentionAUser> <Coins>\``)
+    if (!pay || isNaN(pay)) return message.channel.send(`**Commande Incorrect!** ||Noob Owner||\n**Try:** \`${config.prefix}bal <MentionAUser> <Coins>\``)
 
     let user = message.mentions.users.first()
     let logchannel = client.channels.cache.get(config.logChannel)
     let embed = new Discord.MessageEmbed()
-    .setTitle('Owner Command')
+    .setTitle('Commande du propriétaire')
     .setDescription(`**Owner Name: <@${message.author.id}>!**\n\nAdded **${pay}** coins to <@${user.id}>`)
     .setColor('#ff7542')
     .setThumbnail(user.displayAvatarURL({ format: "png", dynamic: true }))
