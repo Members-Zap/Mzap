@@ -6,9 +6,9 @@ module.exports = {
     let channel = client.channels.cache.get(config.logChannel)
   
     const embed = new Discord.MessageEmbed()
-    .setTitle(`New Server!`)
+    .setTitle(`Nouveau serveur!`)
     .setColor(`#19ec1d`)
-    .setDescription(`Name & Id: **${guild.name}(\`${guild.id})\`**\nTotal Users: **${guild.memberCount}**\nOwner: **${guild.owner.user.tag}(\`${guild.owner.id}\`)**`)
+    .setDescription(`Nom & Id: **${guild.name}(\`${guild.id})\`**\nTotal Users: **${guild.memberCount}**\nOwner: **${guild.owner.user.tag}(\`${guild.owner.id}\`)**`)
     .setThumbnail(guild.iconURL());
      if (channel) channel.send(embed);
     
