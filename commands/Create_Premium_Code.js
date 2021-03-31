@@ -4,21 +4,21 @@ const config = require("../config.json")
 module.exports = {
     name: "createcode",
     aliases: ["createpremium", "getpremium"],
-    description: "Show bot stats",
+    description: "Afficher les statistiques du bot",
     execute: async (client, message, args) => {
   let owners = config.OwnerID;
   let code = args[0]
   if(!code) {
     let argsrequired = new Discord.MessageEmbed()
-    .setTitle(`**An Invaild Usage**`)
-    .setDescription(`Please insert a valid code for this!`)
+    .setTitle(`**Une utilisation non valide**`)
+    .setDescription(`Veuillez insérer un code valide pour cela!`)
     message.channel.send(argsrequired)
     return;
   }
   let codecheck = db.get(`botpremiumcodes`)
   let alreadyexist = new Discord.MessageEmbed()
   .setTitle(`Exisited Code`)
-  .setDescription(`This Code It's already on the database please try to enter an other code`)
+  .setDescription(`Ce code est déjà dans la base de données, veuillez essayer d'entrer un autre code`)
   if(codecheck && codecheck.find(find => find.premiumcodes == code)) return message.channel.send(alreadyexist);
   let codedata = {
    premiumcodes: code
