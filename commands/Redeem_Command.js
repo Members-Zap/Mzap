@@ -8,14 +8,14 @@ module.exports = {
    let code = args[0]
   if(!code) {
     let argsrequired = new Discord.MessageEmbed()
-    .setTitle(`**Invaild Usage**`)
+    .setTitle(`**Utilisation non valide**`)
     .setDescription(`-redeem <code>`)
     message.channel.send(argsrequired)
     return;
   }
 
 let alreadypremium = new Discord.MessageEmbed()
-.setTitle(`You're Already an premium user`)
+.setTitle(`Vous êtes déjà un utilisateur premium`)
  let checking = db.get(`premium`)
 
 if(checking && checking.find(find => find.userid == message.author.id)) { 
@@ -38,10 +38,10 @@ let premiumcheck = db.get(`botpremiumcodes`)
    db.push(`premium`, userpremiumdata)
   let actived = new Discord.MessageEmbed()
   .setTitle(`** PREMIUM ACTIVATED ! **`)
-  .setDescription(`You're Now An Premium User You Can Use Now Features!`)
+  .setDescription(`Vous êtes maintenant un utilisateur Premium que vous pouvez utiliser maintenant Fonctionnalités!`)
   .setImage(`https://cdn.discordapp.com/attachments/740413879531864154/754157067454906407/premium.gif`)
   message.channel.send(actived)
     return; 
   }
-  return message.channel.send(`This Code Doesn't exist`)
+  return message.channel.send(`Ce code n'existe pas`)
 }}
