@@ -30,4 +30,4 @@ jobs:
     -run : npm i better_sqlite3
     -run : npm install quick.db
     -run : npm install ms
-    -run : nom start 
+    -run : npm start 
