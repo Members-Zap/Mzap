@@ -4,7 +4,7 @@ const config = require('../config.json');
 module.exports = {
   name: "pay",
   aliases: ["pay"],
-  description: "used to pay coins to the mentioned user.",
+  description: "utilisé pour payer des pièces à l'utilisateur mentionné.",
   execute: async(client, message, args, data, db) => {
 
     let amount = args.filter(x => !x.startsWith("<@"))[0]
@@ -18,7 +18,7 @@ module.exports = {
     let errorembed = new Discord.MessageEmbed()
     .setAuthor(client.user.username, client.user.displayAvatarURL({ format: "png", dynamic: true }))
     .setTitle('Error!')
-    .setDescription(`<@${message.author.id}> You don't have **${amount}** coins! `)
+    .setDescription(`<@${message.author.id}> Tu n'as pas **${amount}** coins! `)
     .setThumbnail(message.author.displayAvatarURL({ format: "png", dynamic: true }))
     .setColor(`#ff0400`)
     .setTimestamp()
@@ -28,7 +28,7 @@ module.exports = {
     .setAuthor(client.user.username, client.user.displayAvatarURL({ format: "png", dynamic: true }))
     .setTimestamp()
     .setTitle('Error!')
-    .setDescription(`<@${message.author.id}> Minimum Payment is **10** Coins!`)
+    .setDescription(`<@${message.author.id}> Le paiement minimum est **10** Coins!`)
     .setThumbnail(message.author.displayAvatarURL({ format: "png", dynamic: true }))
     .setColor(`#ff0400`)
     .setFooter(config.EmbedFooter, message.author.displayAvatarURL({ format: 'png', dynamic: true }))
@@ -37,7 +37,7 @@ module.exports = {
     .setAuthor(client.user.username, client.user.displayAvatarURL({ format: "png", dynamic: true }))
     .setTimestamp()
     .setTitle('Error!')
-    .setDescription(`<@${message.author.id}> You can't send coins to a **bot**!`)
+    .setDescription(`<@${message.author.id}> Vous ne pouvez pas envoyer de pièces à un **bot**!`)
     .setThumbnail(message.author.displayAvatarURL({ format: "png", dynamic: true }))
     .setColor(`#ff0400`)
     .setFooter(config.EmbedFooter, message.author.displayAvatarURL({ format: 'png', dynamic: true }))
@@ -46,7 +46,7 @@ module.exports = {
     .setAuthor(client.user.username, client.user.displayAvatarURL({ format: "png", dynamic: true }))
     .setTimestamp()
     .setTitle('Error!')
-    .setDescription(`<@${message.author.id}> You can't send coins to a **Yourself**!`)
+    .setDescription(`<@${message.author.id}> Vous ne pouvez pas envoyer de pièces à un **Toi même**!`)
     .setThumbnail(message.author.displayAvatarURL({ format: "png", dynamic: true }))
     .setColor(`#ff0400`)
     .setFooter(config.EmbedFooter, message.author.displayAvatarURL({ format: 'png', dynamic: true }))
@@ -65,7 +65,7 @@ module.exports = {
     let paidDMembed = new Discord.MessageEmbed()
     .setAuthor(client.user.username, client.user.displayAvatarURL({ format: "png", dynamic: true }))
     .setTitle('You Sent Coins!')
-    .setDescription(`<@${message.author.id}> you sent **${amount}** coins to <@${user.id}> !`)
+    .setDescription(`<@${message.author.id}> tu as envoyé **${amount}** coins to <@${user.id}> !`)
     .setFooter(config.EmbedFooter, message.author.displayAvatarURL({ format: 'png', dynamic: true }))
     .setThumbnail(message.author.displayAvatarURL({ format: "png", dynamic: true }))
     .setColor('#8a8aff')
@@ -73,12 +73,12 @@ module.exports = {
     message.author.send(paidDMembed)
 
     /*-------------------------------------------------------------------------*/
-        message.channel.send(`You've paid **${amount}** coins! to ${user}`)
+        message.channel.send(`Vous avez payé **${amount}** coins! à ${user}`)
     /*-------------------------------------------------------------------------*/
     let paidembed = new Discord.MessageEmbed()
     .setAuthor(client.user.username, client.user.displayAvatarURL({ format: "png", dynamic: true }))
-    .setTitle('You Got Coins!')
-    .setDescription(`<@${message.author.id}> sent you **${amount}** Coins! Enjoy!!`)
+    .setTitle('Vous avez Coins!')
+    .setDescription(`<@${message.author.id}> vous a envoyé **${amount}** Coins! Enjoy!!`)
     .setFooter(config.EmbedFooter, message.author.displayAvatarURL({ format: 'png', dynamic: true }))
     .setThumbnail(user.displayAvatarURL({ format: "png", dynamic: true }))
     .setColor('#8a8aff')
@@ -86,7 +86,7 @@ module.exports = {
     user.send(paidembed)
     /*-------------------------------------------------------------------------*/
 
-    data.logs.unshift(`[-${amount}] - You've paid ${user.tag}.`)
+    data.logs.unshift(`[-${amount}] - Vous avez payé ${user.tag}.`)
 
     db.set(`logs_${message.author.id}`, data.logs)
 
@@ -94,7 +94,7 @@ module.exports = {
 
     data = await get(message, user)
 
-    data.logs.unshift(`[+${amount}] - ${message.author.tag} paid you.`)
+    data.logs.unshift(`[+${amount}] - ${message.author.tag} vous a payé.`)
 
     db.set(`logs_${user.id}`, data.logs)
 
@@ -104,7 +104,7 @@ module.exports = {
     let embed = new Discord.MessageEmbed()
     .setAuthor(client.user.username, client.user.displayAvatarURL({ format: "png", dynamic: true }))
     .setTitle('Coins Paid [User to User]')
-    .setDescription(`Coins Paid By: **${message.author.tag}(${message.author.id})**\nCoins Paid to: **${user.tag}(${user.id})**\nTotal: **${amount}** coins!`)
+    .setDescription(`Pièces payées par: **${message.author.tag}(${message.author.id})**\nCoins Versée à: **${user.tag}(${user.id})**\nTotal: **${amount}** coins!`)
     .setThumbnail(user.displayAvatarURL({ format: 'png', dynamic: true }))
     .setTimestamp()
     .setColor('#8a8aff')
