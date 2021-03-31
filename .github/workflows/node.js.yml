@@ -25,4 +25,34 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - run: node index.js
+    - run: npm i @top-gg/sdk
+    - run: npm i array-sort
+    - run: npm i ascii-art
+    - run: npm i async-limiter
+    - run: npm i colors
+    - run: npm i common-tags
+    - run: npm i dblapi.js
+    - run: npm i discord.js
+    - run: npm i express
+    - run: npm i ffmpeg
+    - run: npm i figlet
+    - run: npm i lodash
+    - run: npm i lodash.set
+    - run: npm i lodash.unset
+    - run: npm i long
+    - run: npm i ms
+    - run: npm i parse-ms
+    - run: npm i prism-media
+    - run: npm i quick.db
+    - run: npm i safe-buffer
+    - run: npm i simple-youtube-api
+    - run: npm i sqlite3
+    - run: npm i sqlite
+    - run: npm i better-sqlite
+    - run: npm i snekfetch
+    - run: npm i superagent
+    - run: npm i table
+    - run: npm i tweetnacl
+    - run: npm i weather-js
+    - run: npm i ws
+    - run: npm i ytdl-core
