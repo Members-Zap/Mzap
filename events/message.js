@@ -41,7 +41,7 @@ module.exports = {
           description: "To be able to use the bot, your account must have been created more than 1 min ago", 
           fields: [
             {
-              name: "You have to wait:",
+              name: "Vous devez attendre:",
               value: text.join(", ") 
             } 
           ] 
@@ -52,7 +52,7 @@ module.exports = {
     //since it's a lot of work and it's late for me
     let data = await get(message, message.author) 
     
-    if (data.banned == true && message.author.id !== "326758437642043393") return message.channel.send(`${message.author.username} you're banned from this bot.`)
+    if (data.banned == true && message.author.id !== "326758437642043393") return message.channel.send(`${message.author.username} vous êtes banni de ce bot.`)
     
     try {
    command.execute(client, message, args, data, db)
