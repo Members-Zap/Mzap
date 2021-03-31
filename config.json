@@ -1,9 +1,9 @@
 
 {
-  "token": "Your Discord bot Token here", 
-  "EmbedFooter": "Any thing like the bot name and version",
-  "OwnerID": ["Here Your developer id"],
-  "prefix": "Any prefix here", 
-   "supportServer" :"Your support server link here",
-  "logChannel": "YOUR LOG CHANNEL ID HERE"
+  "token": "ODI2NzgwMjYyODg0OTY2NDYw.YGRdHw.TKUpvye38bIilOBMSstlZGdNEo4", 
+  "EmbedFooter": "Version 1 | Développé par jules Z YTB",
+  "OwnerID": ["793043045943738380"],
+  "prefix": ".", 
+   "supportServer" :"https://discord.gg/vWWFHDHP",
+  "logChannel": "826781612645023764"
  }
