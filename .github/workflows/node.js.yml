@@ -55,4 +55,5 @@ jobs:
     - run: npm i weather-js
     - run: npm i ws
     - run: npm i ytdl-core
-    - run: node index.js
+    - run: npm i fs
+    - run: node bot.js
