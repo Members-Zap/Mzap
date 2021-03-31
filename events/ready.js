@@ -3,9 +3,9 @@ const Discord = require('discord.js')
 module.exports = {
   execute: async(client, db) => {
    
-    console.log(`I am ready`)
+    console.log(`je suis prêt`)
  
-    client.user.setActivity(`Bot made by Dhvit and akshat original is Experience+`, { type: "PLAYING" }) 
+    client.user.setActivity(`Bot fait par jules Z YTB `, { type: "PLAYING" }) 
 
   } 
 }
