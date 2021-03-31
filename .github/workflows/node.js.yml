@@ -25,9 +25,4 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - run: npm install
-    - run: npm install sqlite3
-    - run: npm i better_sqlite3
-    - run: npm install quick.db
-    - run: npm install ms
-    - run: npm start 
+    - run: node index.js
