@@ -3,7 +3,7 @@ const config = require('../config.json')
 module.exports = {
   name: "advertise",
   aliases: ["buy"], 
-  description: "used to advertise your server and get members on your Server.",
+  description: "utilisé pour annoncer votre serveur et obtenir des membres sur votre serveur.",
   execute: async(client, message, args, data, db) => {
 
     let amount = Number(args[0])
@@ -11,11 +11,11 @@ module.exports = {
     var description = args.slice(1).join(" ")
     if(!description)
     {
-      var description = "No Desciption has been set";
+      var description = "Aucune description n'a été définie";
       }
     let needatleastcoins = new Discord.MessageEmbed()
     .setTitle(`Error!`)
-    .setDescription(`<@${message.author.id}> You need at least **6** coins to buy users in your server.`)
+    .setDescription(`<@${message.author.id}> Vous avez besoin d'au moins **6** pièces pour acheter des utilisateurs sur votre serveur.`)
     .setColor("RED")
     .setFooter(config.EmbedFooter)
     .setImage('https://cdn.discordapp.com/attachments/801320007077593111/805374099781713960/350kb_1.gif')
@@ -23,7 +23,7 @@ module.exports = {
     if (data.coins < 6) return message.channel.send(needatleastcoins)
     let incorrectcommand = new Discord.MessageEmbed()
     .setTitle(`Error!`)
-    .setDescription(`<@${message.author.id}> BRUH. This command is incorrect. In order to buy users in your server, do \`-buy <NumberOfCoins> <Description>\` \nNote: No need to put \`<>\``)
+    .setDescription(`<@${message.author.id}> BRUH. Cette commande est incorrecte. Pour acheter des utilisateurs sur votre serveur, faites \`-buy <NumberOfCoins> <Description>\` \nNote: Pas besoin de mettre \`<>\``)
 
     if (!amount || isNaN(amount) || amount < 1) return message.channel.send(`Commanding incorrect!\nIn order to buy users for your server do \`${config.prefix}buy <numberOfCoins> <description>\` [1 coin = 1 user]`)
 
@@ -45,9 +45,9 @@ module.exports = {
       console.log(link)
     })
 
-    if (description && description.includes("discord.gg")) return message.channel.send(`Unfortunately I don't accept invite links in description. Remove them please!`)
+    if (description && description.includes("discord.gg")) return message.channel.send(`Malheureusement, je n'accepte pas les liens d'invitation dans la description. Retirez-les s'il vous plaît!`)
     if (description && description.includes("https://", "http://")) return message.channel.send(`I don't accept Website and Server links`)
-    if (description && description.length > 50) return message.channel.send(`The message exceed the limit of 50 words`)
+    if (description && description.length > 50) return message.channel.send(`Le message dépasse la limite de 50 mots`)
     
 
 
@@ -55,7 +55,7 @@ module.exports = {
 
     db.set(`code_${message.guild.id}`, link)
 
-    data.logs.unshift(`[-${amount}] - Advertise ${message.guild.name}(${message.guild.id}) server.`)
+    data.logs.unshift(`[-${amount}] - Afficher ${message.guild.name}(${message.guild.id}) serveur.`)
 
     db.set(`logs_${message.author.id}`, data.logs)
 
@@ -71,9 +71,9 @@ module.exports = {
     //*.setImage(`https://cdn.discordapp.com/attachments/801320007077593111/805370070070853652/350kb.gif`)
     .setDescription(`[<@${message.author.id}>] You have successfully bought users for your server\n **__NOTE__** Your sevrer to be upload will take some time.`)
     .addFields([
-      {name: "Amount Paid", value: `**${amount}** coins`},
-      {name: "You will get", value: `**${amount}** users`},
-      {name: "+info | +orders", value: `Check current orders of **${client.guilds.cache.get(message.guild.id).name}**`}
+      {name: "Le montant payé", value: `**${amount}** coins`},
+      {name: "Tu auras", value: `**${amount}** users`},
+      {name: ".info | .orders", value: `Vérifiez les commandes en cours de **${client.guilds.cache.get(message.guild.id).name}**`}
     ])
     .setFooter(config.EmbedFooter)
     message.channel.send(successembed);
