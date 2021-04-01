@@ -3,21 +3,21 @@ const db = require('quick.db');
 const config = require('../config.json');
 module.exports = {
     name: "giftcode",
-    description: "Redeem Code for coins!",
+    description: "Redeem Code pour les pièces!",
     execute: async(client, message, args, data, db) => {
 
       if(args[0] == 'create') {
 
         let COINS = Number(args[1])
-        if (!COINS || isNaN(COINS) || COINS < 1) return message.channel.send(`Commande incorrecte!\nIn pour acheter une carte-cadeau, faites \`-giftcode create <numberOfCoins> <Code>\``)
-        if (COINS > data.coins) return message.channel.send(`${message.author.username} tu n'as pas assez d'équilibre.\n\n\`Si vous obtenez ceci! Veuillez essayer de rejoindre certains serveurs d'abord, puis réessayez cette commande\``)
+        if (!COINS || isNaN(COINS) || COINS < 1) return message.channel.send(`Commande incorrecte!\nPour acheter une carte-cadeau, faites \`-giftcode create <numberOfCoins> <Code>\``)
+        if (COINS > data.coins) return message.channel.send(`${message.author.username} tu n'en as pas assez Balance.\n\n\`Si vous obtenez ceci! Veuillez essayer de rejoindre certains serveurs d'abord, puis réessayez cette commande\``)
         COINS = Math.round(COINS)
 
       let CODE = args[2]
       message.reply(`Vérifier dm!`)
       message.delete()
       let embed = new Discord.MessageEmbed()
-      .setTitle(`Code cadeau généré!`)
+      .setTitle(`Gift Code Generated!`)
       .setDescription(`<@${message.author.id}> Vous avez converti vos pièces en code cadeau!`)
       .addField(`Code:`, `${CODE}`, false)
       .addField(`Total Coins:`, `${COINS}`, false)
@@ -43,7 +43,7 @@ module.exports = {
                 .setColor("#8a8aff")
                 .setTitle(`LE CODE A ÉTÉ RÉCOMPENSÉ AVEC SUCCÈS!`)
                 .setFooter(config.EmbedFooter)
-                .setDescription(`➡ **Vous avez racheté \`${COINSTOADD}\` coins du code cadeau!**`)
+                .setDescription(`➡ **Vous avez racheté \`${COINSTOADD}\` pièces du code cadeau!**`)
                 message.channel.send(redeemed)
           data.logs.unshift(`[+${COINSTOADD}] - Redeemed a Gift code.`)
           db.set(`logs_${message.author.id}`, data.logs)
@@ -52,7 +52,7 @@ module.exports = {
             }
         } else {
           let helpembed = new Discord.MessageEmbed()
-          .setTitle('Gift Code Command Help!')
+          .setTitle('Commande de code cadeau Help!')
           .addField(`\`.giftcode create <Coins> <Code>\``, `En utilisant cela, vous pouvez convertir vos pièces en codes cadeaux!`, false)
           .addField(`\`.giftcode redeem <Code>\``, `En utilisant cela, vous pouvez utiliser des codes cadeaux!`, false)
           .setFooter(config.EmbedFooter, message.author.displayAvatarURL({ format: "png", dynamic: true }))
