@@ -21,21 +21,20 @@ module.exports = {
       .setTitle(`${client.user.username} stats`)
       .setThumbnail(client.user.displayAvatarURL())
       .addField(
-        `📂Memory Usage:`,
+        `📂Mémoire Usage:`,
         (process.memoryUsage().rss / 1024 / 1024).toFixed(2) + "MB",
         false
       )
-      .addField(`🏘Servers Count:`, `${client.guilds.cache.size}`, false)
-      .addField(`👥Users Count:`, `${client.users.cache.size}`, false)
-      .addField(`Shards:`, `1`, false)
-      .addField(`🗓 Creation Date -`, `6th February 2021`, false)
-      .addField(`<a:wumpus_keyboard:807949412105191464> Made With :`, `Node.js V12 And SQ Lite DataBase And Your Love`, false)
-      .addField(`:tools: Developers of This Bot -`, `<@698139730730024981> and <@694960268698189874>`, false)
+      .addField(`🏘Nombre de serveurs:`, `${client.guilds.cache.size}`, false)
+      .addField(`👥Nombre d'utilisateurs:`, `${client.users.cache.size}`, false)
+      .addField(`Fragments:`, `1`, false)
+      .addField(`🗓 Date de création -`, `29 Mars 2021`, false)
+      .addField(`<a:wumpus_keyboard:807949412105191464> Fabriqué avec :`, `Node.js V12 et SQ Lite DataBase et votre amour`, false)
+      .addField(`:tools: Le développeurs de ce bot -`, `Jules Z YTB`, false)
       .addField(`⚙➡Prefix : `, `+`, false)
       .addField(`:chart_with_upwards_trend:Uptime:`, uptime.join(", "), false)
       .addField(`🤖INVITE ME`,`[ADD ME](https://discord.com/oauth2/authorize?client_id=${client.user.ID}&permissions=93185&scope=bot)`)
-      .addField(`:pushpin:Support Server`,`[Support Server](${config.supportServer})`);
+      .addField(`:pushpin:Support Serveur`,`[Support Serveur](${config.supportServer})`);
     message.channel.send(embed);
   }
 };
-//
