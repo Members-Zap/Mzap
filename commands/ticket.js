@@ -4,25 +4,25 @@ const { get } = require('../constructors/sqlite.js')
 module.exports = {
   name: "ticket",
   aliases: ["lotterybuy", "lottery"],
-  description: "used to buy a ticket to get in the lottery.",
+  description: "utilisé pour acheter un billet pour participer à la loterie.",
   execute: async(client, message, args, data, db) => {
    
    console.log(data.ticket)
     
     
      
-    if (data.ticket >= 1) return message.channel.send(`${message.author.username} can't buy more than 1 tickets!`)
+    if (data.ticket >= 1) return message.channel.send(`${message.author.username} ne peut pas acheter plus de 1 ticket!`)
      
     let users = await db.fetch(`users_0`)
     if (users === null) users = [] 
     
-    if (data.coins < 10) return message.channel.send(`You don't have enough coins to buy a lottery ticket. Needs 10 Coins to buy`)
+    if (data.coins < 10) return message.channel.send(`Vous n'avez pas assez de pièces pour acheter un ticket de loterie. Nécessite 10 pièces pour acheter`)
     
-    message.channel.send(`${message.author.username} You've successfully bought a lottery ticket!`)
+    message.channel.send(`${message.author.username} Vous avez acheté une loterie avec succès ticket!`)
     
     users.push(message.author.id)
     
-    data.logs.unshift(`[-10] - Bought a lottery ticket.`)
+    data.logs.unshift(`[-10] - Acheté une loterie ticket.`)
     
     db.set(`logs_${message.author.id}`, data.logs)
     
