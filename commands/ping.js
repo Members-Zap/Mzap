@@ -3,7 +3,7 @@ const Discord = require('discord.js')
 module.exports = {
   name: "ping",
   aliases: ["ping"],
-  description: "returns the bot's latency.",
+  description: "renvoie la latence du bot.",
   execute: async(client, message, args, data, db) => {
   
     message.channel.send(`Pinging...`)
