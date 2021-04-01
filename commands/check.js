@@ -4,7 +4,7 @@ const config = require('../config.json');
 module.exports = {
   name: "check",
   aliases: ["time"],
-  description: "shows you the time left to be able to leave safety.",
+  description: "Afficher Toi le temps qu'il te reste pour pouvoir quitter la sécurité.",
   execute: async(client, message, args, data, db) => {
    
     let timeout = 259200000
@@ -21,9 +21,9 @@ module.exports = {
       .setAuthor(client.user.username, client.user.displayAvatarURL())
       .setTitle(`Server check for ${message.author.username}`)
       .setThumbnail(message.channel.guild.iconURL())
-      .setDescription(`You will lose 10 coins if you leave now!`)
+      .setDescription(`Vous perdrez 10 pièces si vous partez maintenant!`)
      //.setImage(`https://cdn.discordapp.com/attachments/739787130544455762/751824030784290896/userleave.gif`)
-      .addField(`Time remaining:`, time.join(", "), false)
+      .addField(`Time restant:`, time.join(", "), false)
       .setFooter(config.EmbedFooter)
       message.channel.send(noembed)   
      } else {
@@ -33,7 +33,7 @@ module.exports = {
       .setTitle(`Server check for ${message.author.username}`)
       .setThumbnail(message.channel.guild.iconURL())
      //.setImage(`https://cdn.discordapp.com/attachments/739787130544455762/751824929892204584/userwithoutleave.gif`)
-      .setDescription(`You can leave the server without losing any coins.`)
+      .setDescription(`Vous pouvez quitter le serveur sans perdre de pièces.`)
       .setFooter(config.EmbedFooter)
       message.channel.send(embed) 
     } 
