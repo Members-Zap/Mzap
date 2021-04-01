@@ -2,7 +2,7 @@ const Discord = require('discord.js')
 const config = require('../config.json')
 module.exports = {
   name: "lotterystats",
-  description: "statistiques de la loterie, propriétaire uniquement.",
+  description: "stats of the lottery, owner only.",
   execute: async(client, message, args, data, db) => {
 
     let owners = config.OwnerID;
@@ -25,11 +25,11 @@ module.exports = {
     
     let embed = new Discord.MessageEmbed()
     .setColor(config.embedColor)
-    .setTitle(`Participants à la loterie:`)
-    .addField(`Les participants:`, users.length, false)
-    .addField(`Récompense:`, de l'argent + " coins", false)
+    .setTitle(`Lottery Participants:`)
+    .addField(`Participants:`, users.length, false)
+    .addField(`Reward:`, money + " coins", false)
     .setThumbnail(client.user.displayAvatarURL)
-    .setFooter(`Tapez .end pour sélectionner le gagnant!`)
+    .setFooter(`Type +end to select the winner!`)
     message.channel.send(embed) 
   } 
 } 
