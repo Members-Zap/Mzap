@@ -44,6 +44,7 @@ jobs:
     - run: npm i parse-ms
     - run: npm i prism-media
     - run: npm i quick.db
+    - run: npm i hexo-db
     - run: npm i safe-buffer
     - run: npm i simple-youtube-api
     - run: npm i sqlite3
